@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Nama Inventaris', 'Jumlah'],
+          ['SSD',25],
+        ['Hardisk',20],
+        ['Mouse',100],
+        ['Proyektor',30],
+        ['Lenovo Yoga 520',1],
+        ['Keyboard',150],
+        ['CPU',15],
+        ['Monitor',20],
+        ['Printer',15],
+        ['Stabilizer',20],
+        ['Speake',50],
+        [' Headphone',50],
+        ['Router',30],
+        ['Hardisk',20],
+        ['Power Supply',30],
+        ['VGA Card',20],
+        ['Motherboard',20],
+        ['Terminal Cabang',30],
+        ['Kabel HDMI',50],
+        ['Kabel LAN',50],
+        ['Kabel VGA',50],
+        ['Kabel DVI',50],
+        ['Kabel IDE',50],
+        ['Kabel SATA',50],
+        ['Kabel Power PC',30],
+        ['Stop Kontak Cabang',33],
+        ['Mousepad',60],
+        ['RAM',40],
+        ['UPS',23],
+        ['Lightpen',30]
+        ]);
+
+        var options = {
+          title: 'Data Informasi Visualization',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

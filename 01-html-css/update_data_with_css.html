@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
+    <head>
+        <title>Update Data Inventaris</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="margin.css" media="all" />
+        <style>
+            body{
+                background-image: url(Simalab.jpeg);
+            }
+            .garis_verikal{
+		        border-left: 1.75px black solid;
+		        height: 30px;
+		        width: 0px;
+	        }
+            .p{
+                font-size: 30px;
+                color: black;
+                font-style: initial;
+            }
+        </style>
+       
+    </head>
+        </div>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-primary bg-info navbar-dark">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <ul class="navbar-nav mr-auto">
+                    <li class ="nav-item">
+                        <h1 class="p" href="#">Simalab</h1>
+                    </div>
+            <div class ="media">
+                <img src="profil.jpg" alt="logo" class= "align-self-start mr-3" style="width: 25px;">
+            <div class="dropdown">
+                    <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">
+                        Halo, Ucok
+                      </button>
+                      <div class="dropdown-menu">
+                          <a class="dropdown-item" href="logout.php">Logout</a>
+                      </div>
+                    </div>
+                    </div>
+
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class ="nav-item">
+                    <a class="nav-link" href="main_interface_css.html">Home</a>
+                </li>
+                <div class="garis_verikal"></div>
+                <li class ="nav-item">
+                    <a class="nav-link" href="data_informasi_css.html">Data Informasi</a>
+                </li>
+                <div class="garis_verikal"></div>
+                <li class ="nav-item">
+                    <a class="nav-link" href="cek_kondisi_css.html">Cek Kondisi</a>
+                </li>
+                <div class="garis_verikal"></div>
+                <div class="menu-warp">
+                    <ul>
+                        <li class="dropdown"><a href="#">Transaksi</a>
+                            <ul class="isi-dropdown">
+                            <li><a href="Form_Transaksi_css.html">Transaksi</a></li>
+                            <li><a href="update_data_with_css.html">Update Data</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+            <div class="search-container">
+            <div class="search-box">
+                <input class="search-txt" type="text" name="cari" placeholder="Type to search">
+                <a class="search-btn" href="../02-html-php/cari.php">
+                    <span class="icon"></span><i class="fas fa-search"></i>
+                </a>
+            </div>
+            </div>
+            </div>      
+        </nav>
+        <div class="tron text-center">
+            <h1>Update Data Inventaris</h1> 
+        <div class="container">
+            <table class ="table" >
+                <thead class="thead-dark">
+                <tr>
+                    <th>No</th> 
+                    <th>ID</th> 
+                    <th>Nama Inventaris</th> 
+                    <th>Kondisi</th> 
+                </tr>
+                </thead>
+            </tbody>
+                <tr class ="table-secondary">
+                    <td>1</td> 
+                    <td>003B</td> 
+                    <td>Lenovo Yoga</td> 
+                    <td>Baik</td>
+                </tr>
+                <tr class ="table-light">
+                    <td>2</td> 
+                    <td>002A</td> 
+                    <td>Mouse</td> 
+                    <td>Baik</td>
+                </tr>
+                <tr class ="table-secondary">
+                    <td>3</td> 
+                    <td>001C</td> 
+                    <td>Hardisk</td> 
+                    <td>Baik</td>
+                </tr>
+                <tr class ="table-light">
+                    <td>4</td> 
+                    <td>006S</td> 
+                    <td>CPU</td> 
+                    <td>Baik</td>
+                </tr>
+                <tr class ="table-secondary">
+                    <td>5</td> 
+                    <td>006A</td> 
+                    <td>Keyboard</td> 
+                    <td>Baik</td>
+                </tr>
+                <tr class ="table-light">
+                    <td>6</td> 
+                    <td>003A</td> 
+                    <td>Proyektor</td> 
+                    <td>Baik</td>
+                </tr>              
+            </table>
+        </div>
+        <div class= "container">
+            <a href="../02-html-php/update.php" class="btn btn-success">Update</a>
+            <a href="main_interface_css.html" class="btn btn-danger">Cancel</a>         
+        </div> 
+        </div>       
+    </body>
+</html>
+

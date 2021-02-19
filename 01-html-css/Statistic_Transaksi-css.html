@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Bar Chart</title>
+	<script src="../../../Chart.bundle.js"></script>
+	<script src="../../utils.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+body{
+  background-image: url("Simalab.jpeg");
+}
+.garis_verikal{
+  border-left: 1.75px black solid;
+  height: 30px;
+  width: 0px;
+}
+
+</style>
+
+
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_css.html">Home</a>
+                    </li>
+                    <div class="garis_verikal"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data_informasi_css.html">Data Informasi</a>
+                    </li>
+                    <div class="garis_verikal"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form_cek_kondisi_css.html">Cek Kondisi</a>
+                    </li>
+                    <div class="garis_verikal"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transaksi_css.html">Transaksi</a>
+                    </li>
+                    <div class ="garis_verikal"></div>
+            <li class ="nav-item">
+                <a class="nav-link" href="update_data_with_css.html">Update Data</a>
+            </li>
+                </ul>
+                
+    <div class="dropdown">
+                    <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">
+                        Halo, <b><?= $_SESSION['username']?></b>
+                      </button>
+                      <div class="dropdown-menu">
+                          <a class="dropdown-item" href="webchat_css.html">Chat</a>  
+                          <a class="dropdown-item" href="logout.php">Logout</a>
+                              
+                      </div>
+                    </div>
+                  </body>
+    </div> </div>
+	
+	
+                <link rel="stylesheet" href="style.css">
+                <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        </nav>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+
+
+<body>
+	<h3>STATISTICAL DATA TRANSAKSI BERDASARKAN NAMA INVENTARIS</h3> <br>
+	<div id="container" style="width: 75%;">
+		<canvas id="canvas"></canvas>
+	</div>
+	<button id="randomizeData">Randomize Data</button>
+	<button id="addDataset">Add Dataset</button>
+	<button id="removeDataset">Remove Dataset</button>
+	<button id="addData">Add Data</button>
+	<button id="removeData">Remove Data</button>
+	<script>
+		var Data = ['Mouse', 'Keyboard', 'Lenovo Yoga 520', 'Harddisk', 'CPU', 'Proyektor'];
+		var color = Chart.helpers.color;
+		var barChartData = {
+			labels: ['Mouse', 'Keyboard', 'Lenovo Yoga 520', 'Harddisk', 'CPU', 'Proyektor'],
+			datasets: [{
+				label: 'Dataset 1',
+				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.red,
+				borderWidth: 1,
+				data: [
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor()
+				]
+			}, {
+				label: 'Dataset 2',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
+				borderWidth: 1,
+				data: [
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor()
+				]
+			}]
+
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						display: true,
+						text: 'Statictic transaksi'
+					}
+				}
+			});
+
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			var zero = Math.random() < 0.2 ? true : false;
+			barChartData.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return zero ? 0.0 : randomScalingFactor();
+				});
+
+			});
+			window.myBar.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var colorName = colorNames[barChartData.datasets.length % colorNames.length];
+			var dsColor = window.chartColors[colorName];
+			var newDataset = {
+				label: 'Dataset ' + barChartData.datasets.length,
+				backgroundColor: color(dsColor).alpha(0.5).rgbString(),
+				borderColor: dsColor,
+				borderWidth: 1,
+				data: []
+			};
+
+			for (var index = 0; index < barChartData.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+			}
+
+			barChartData.datasets.push(newDataset);
+			window.myBar.update();
+		});
+
+		document.getElementById('addData').addEventListener('click', function() {
+			if (barChartData.datasets.length > 0) {
+				var month = Data[barChartData.labels.length % Data.length];
+				barChartData.labels.push(month);
+
+				for (var index = 0; index < barChartData.datasets.length; ++index) {
+					// window.myBar.addData(randomScalingFactor(), index);
+					barChartData.datasets[index].data.push(randomScalingFactor());
+				}
+
+				window.myBar.update();
+			}
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			barChartData.datasets.splice(0, 1);
+			window.myBar.update();
+		});
+
+		document.getElementById('removeData').addEventListener('click', function() {
+			barChartData.labels.splice(-1, 1); // remove the label first
+
+			barChartData.datasets.forEach(function(dataset) {
+				dataset.data.pop();
+			});
+
+			window.myBar.update();
+		});
+	</script>
+</body>
+
+</html>

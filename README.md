@@ -1,2 +1,2 @@
-# Sistem-Manajemen-Laboratorium
- A simple management laboratorium system (Web Service) using Laravel framework and MySQL that can be tested in Postman or SoapUI
+# 20-06-simalab
+Repository ini digunakan untuk menyimpan artefak proyek mata kuliah 12S3101 Pemrograman dan Pengujian Aplikasi Web di Institut Teknologi Del.  Topik: Sistem Informasi Manajemen Laboratorium
